@@ -5,6 +5,7 @@ import About from "./components/About/About.jsx";
 import Blog from "./components/Blog/Blog.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import { DarkModeContext } from "./components/Context/Context";
+import Header from "./components/Header/Header";
 import Home from "./components/Home/Home.jsx";
 import Product from "./components/Products/Product.jsx";
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <>
       <DarkModeContext.Provider value={{ darkMode, setDarkMode }}>
+        <Header></Header>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
