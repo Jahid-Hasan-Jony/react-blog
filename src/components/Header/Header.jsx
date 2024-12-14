@@ -7,8 +7,8 @@ const Header = () => {
   return (
     <div
       className={`navbar ${
-        darkMode ? "dark" : "bg-base-100"
-      } shadow shadow-black-100`}
+        darkMode ? "dark border-[#090a0a] border-b-2" : "bg-base-100"
+      } text-second shadow`}
     >
       <div className="navbar-start">
         <div className="dropdown">
@@ -32,44 +32,42 @@ const Header = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            <Link className="px-3 hover:text-first" to="/">
+              Home
+            </Link>
+            <Link className="px-5 hover:text-first" to="/about">
+              About
+            </Link>
+            <Link className="px-3 hover:text-first" to="/products">
+              Products
+            </Link>
+            <Link className="px-3 hover:text-first" to="/blog">
+              Blog
+            </Link>
+            <Link className="px-3 hover:text-first" to="/contact">
+              Contact
+            </Link>
           </ul>
         </div>
         <Link to="/">
-          <img className="w-36" src="mts.png" alt="logo" />
+          <img className="w-36" src="/mts.png" alt="logo" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex ">
-        <ul className="menu menu-horizontal px-1 text-first font-bold text-lg ">
-          <Link className="px-3 hover:text-second" to="/">
+        <ul className="menu menu-horizontal px-1 font-medium text-lg ">
+          <Link className="px-3 hover:text-first" to="/">
             Home
           </Link>
-          <Link className="px-5 hover:text-red" to="/about">
+          <Link className="px-5 hover:text-first" to="/about">
             About
           </Link>
-          <Link className="px-3 hover:text-second" to="/products">
+          <Link className="px-3 hover:text-first" to="/products">
             Products
           </Link>
-          <Link className="px-3 hover:text-second" to="/blog">
+          <Link className="px-3 hover:text-first" to="/blog">
             Blog
           </Link>
-          <Link className="px-3 hover:text-second" to="/contact">
+          <Link className="px-3 hover:text-first" to="/contact">
             Contact
           </Link>
         </ul>
@@ -80,6 +78,7 @@ const Header = () => {
           className="flex cursor-pointer gap-2"
         >
           <svg
+            onClick={() => setDarkMode((pre) => !pre)}
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
@@ -99,6 +98,7 @@ const Header = () => {
             className="toggle theme-controller"
           />
           <svg
+            onClick={() => setDarkMode((pre) => !pre)}
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"

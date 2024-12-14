@@ -4,7 +4,7 @@ import BlogListing from "../Blog/BlogListing/BlogListing";
 import { DarkModeContext } from "../Context/Context";
 
 const Home = () => {
-  const { darkMode, setDarkMode } = useContext(DarkModeContext);
+  const { darkMode } = useContext(DarkModeContext);
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch("/data.json")
@@ -12,8 +12,12 @@ const Home = () => {
       .then((resData) => setData(resData));
   }, []);
   return (
-    <div className={`${darkMode ? "dark" : ""} w-full p-5`}>
-      <div className="flex flex-wrap gap-4 items-center justify-center">
+    <div
+      className={`${
+        darkMode ? "dark" : ""
+      } w-full py-14 z-0 flex justify-center`}
+    >
+      <div className="flex flex-wrap gap-5 items-start justify-center w-3/4">
         {data?.map((item) => (
           <BlogListing key={item.id} data={item} />
         ))}
