@@ -1,7 +1,13 @@
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarDays,
+  faLayerGroup,
+  faPenToSquare,
+  faTags,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import RelatedProduct from "./relatedProduct";
 
 const SingleBlogPage = () => {
   const [data, setData] = useState([]);
@@ -14,7 +20,8 @@ const SingleBlogPage = () => {
         setData(resData);
         resData.map((item) => item.title == blogTitle && setSingleData(item));
       });
-  }, []);
+  }, [blogTitle]);
+
   return (
     <div>
       <div
@@ -34,9 +41,9 @@ const SingleBlogPage = () => {
         </div>
       </div>
 
-      <div className="text-black">
-        <div className="container flex flex-wrap justify-center item-center mx-auto py-10">
-          <div className="flex-auto w-64">
+      <div className="text-black py-16">
+        <div className="container flex items-start flex-wrap justify-center item-center mx-auto">
+          <div className="w-3/4 p-5">
             <div className="flex flex-wrap space-x-4">
               <div className="flex-auto w-64">
                 <img className="w-full" src={singleData.image} />
@@ -44,29 +51,37 @@ const SingleBlogPage = () => {
               <div className="flex-auto flex justify-center flex-col w-32">
                 <div>
                   <p className="py-3 text-xl  font-medium border-b border-[rgb(0 5 6 / 14%)]">
-                    <FontAwesomeIcon icon={faCoffee} />
+                    <FontAwesomeIcon className="px-3" icon={faPenToSquare} />
                     Author :
                     <span className="text-first rounded px-2 font-medium">
                       {singleData.author}
                     </span>
                   </p>
                   <p className="py-3 text-xl font-medium border-b border-[rgb(0 5 6 / 14%)]">
+                    <FontAwesomeIcon className="px-3" icon={faCalendarDays} />
                     Publish Date :
                     <span className="text-first rounded px-2 font-medium">
                       {singleData.date}
                     </span>
                   </p>
                   <p className="py-3 text-xl font-medium border-b border-[rgb(0 5 6 / 14%)]">
+                    <FontAwesomeIcon className="px-3" icon={faLayerGroup} />
                     Post Category :
                     <span className="text-first rounded px-2 font-medium">
                       {singleData.category}
                     </span>
                   </p>
                   <p className="py-3 text-xl font-medium border-b border-[rgb(0 5 6 / 14%)]">
+                    <FontAwesomeIcon className="px-3" icon={faTags} />
                     Post Tags :
-                    {singleData.tags?.map((item) => (
-                      <span className="text-first rounded px-2 font-medium">
-                        {item}
+                    {singleData.tags?.map((item, index) => (
+                      <span
+                        key={index}
+                        className="text-first rounded px-2 font-medium"
+                      >
+                        {singleData.tags.length - 1 != index
+                          ? `${item} ,`
+                          : item}
                       </span>
                     ))}
                   </p>
@@ -79,7 +94,17 @@ const SingleBlogPage = () => {
             </h1>
             <div>{singleData.content}</div>
           </div>
-          <div className="flex-auto w-32"></div>
+          <div className="w-1/4">
+            <div className="p-5 shadow shadow-lg">
+              <h3 className="pb-2 text-xl font-bold">Related Blogs</h3>
+              {data.map(
+                (item) =>
+                  item.category == "Web Design" && (
+                    <RelatedProduct key={item.id} data={item} />
+                  )
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </div>
