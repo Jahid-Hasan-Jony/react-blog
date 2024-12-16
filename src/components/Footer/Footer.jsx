@@ -6,7 +6,13 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
-import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretRight,
+  faEnvelope,
+  faMapLocationDot,
+  faPhone,
+  faShuttleSpace,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -23,26 +29,59 @@ const Footer = () => {
             perferendis mollitia impedit!
           </p>
         </div>
-        <div className="w-1/4">
-          <h2 className="font-bold text-lg text-second">Quick Links</h2>
-          <div className="py-1">
-            <FontAwesomeIcon icon={faCaretRight} /> Home
-          </div>
-          <div className="py-1">
-            <FontAwesomeIcon icon={faCaretRight} /> About
-          </div>
-          <div className="py-1">
-            <FontAwesomeIcon icon={faCaretRight} /> Blogs
-          </div>
-          <div className="py-1">
-            <FontAwesomeIcon icon={faCaretRight} /> Contact Us
+        <div className="w-1/4 flex justify-center">
+          <div>
+            <h2 className="font-bold text-lg text-second">Quick Links</h2>
+            <div className="flex w-full flex-col">
+              <div className="divider divider-end divider-accent">
+                <FontAwesomeIcon icon={faShuttleSpace} />
+              </div>
+            </div>
+            <div className="py-1 hover:text-first">
+              <FontAwesomeIcon icon={faCaretRight} /> Home
+            </div>
+            <div className="py-1 hover:text-first">
+              <FontAwesomeIcon icon={faCaretRight} /> About
+            </div>
+            <div className="py-1 hover:text-first">
+              <FontAwesomeIcon icon={faCaretRight} /> Blogs
+            </div>
+            <div className="py-1 hover:text-first">
+              <FontAwesomeIcon icon={faCaretRight} /> Contact Us
+            </div>
           </div>
         </div>
-        <div className="w-1/4">
-          <h2 className="font-bold text-lg text-second">Contact Info</h2>
+        <div className="w-2/5 flex justify-center">
+          <div>
+            <h2 className="font-bold text-lg text-second">Contact Info</h2>
+            <div className="flex flex-col">
+              <div className="divider w-1/2 divider-end divider-accent">
+                <FontAwesomeIcon icon={faShuttleSpace} />
+              </div>
+              <div className="py-1 hover:text-first">
+                <FontAwesomeIcon className="pe-2" icon={faPhone} />
+                +8801955-885251
+              </div>
+              <div className="py-1 hover:text-first">
+                <FontAwesomeIcon className="pe-2" icon={faEnvelope} />
+                maktechteam@gmail.com
+              </div>
+              <div className="py-1 hover:text-first">
+                <FontAwesomeIcon className="pe-2" icon={faMapLocationDot} />
+                Mazid Tower, Pragotisaroni
+                <br />
+                Road, Dhaka-1229
+              </div>
+            </div>
+          </div>
         </div>
         <div className="w-1/4">
           <h2 className="font-bold text-lg text-second">Newsletter & Social</h2>
+          <div className="flex w-2/4 flex-col">
+            <div className="divider divider-end divider-accent">
+              <FontAwesomeIcon icon={faShuttleSpace} />
+            </div>
+          </div>
           <p className="py-2">
             Sign up to get our latest exclusive updates, deals, offers and
             promotions.
