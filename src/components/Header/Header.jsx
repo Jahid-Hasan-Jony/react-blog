@@ -47,6 +47,12 @@ const Header = () => {
             <Link className="px-3 hover:text-first" to="/contact">
               Contact
             </Link>
+            <Link className="px-3 hover:text-first" to="/login">
+              Login
+            </Link>
+            <Link className="px-3 hover:text-first" to="/register">
+              Register
+            </Link>
           </ul>
         </div>
         <Link to="/">
@@ -69,6 +75,12 @@ const Header = () => {
           </Link>
           <Link className="px-3 hover:text-first" to="/contact">
             Contact
+          </Link>
+          <Link className="px-3 hover:text-first" to="/login">
+            Login
+          </Link>
+          <Link className="px-3 hover:text-first" to="/register">
+            Register
           </Link>
         </ul>
       </div>
