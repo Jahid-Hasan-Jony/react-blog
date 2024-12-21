@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { AuthContextApi } from "../../Context/AuthContextProvider";
+
 const Login = () => {
+  const { user } = useContext(AuthContextApi);
   return (
     <>
       <div
@@ -50,6 +54,7 @@ const Login = () => {
                 <button className="btn btn-primary">Login</button>
               </div>
             </form>
+            {/* {console.log("test - ", user)} */}
           </div>
         </div>
       </div>

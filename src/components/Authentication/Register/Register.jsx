@@ -1,4 +1,27 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import auth from "../../../../public/firebase.config";
+
 const Register = () => {
+  function submitHandler() {
+    event.preventDefault();
+    const e = event.target;
+    let firstName = e.fname.value;
+    let lastName = e.lname.value;
+    let mail = e.mail.value;
+    let pass = e.pass.value;
+    createUserWithEmailAndPassword(auth, mail, pass)
+      .then((userCredential) => {
+        // Signed up
+        const user = userCredential.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
+    // console.log(firstName, lastName, mail, pass);
+  }
   return (
     <>
       <div
@@ -18,7 +41,7 @@ const Register = () => {
       <div className="hero bg-base-200 py-16">
         <div className="hero-content w-full xl:w-1/4">
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={submitHandler} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">First Name</span>
@@ -38,7 +61,7 @@ const Register = () => {
                 <input
                   type="text"
                   placeholder="Last Name"
-                  name="Lname"
+                  name="lname"
                   className="input input-bordered"
                   required
                 />
@@ -50,6 +73,7 @@ const Register = () => {
                 </label>
                 <input
                   type="email"
+                  name="mail"
                   placeholder="email"
                   className="input input-bordered"
                   required
@@ -62,6 +86,7 @@ const Register = () => {
                 <input
                   type="password"
                   placeholder="password"
+                  name="pass"
                   className="input input-bordered"
                   required
                 />
